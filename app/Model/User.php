@@ -50,4 +50,15 @@ class User extends AppModel {
 							)
 						),
 					   );
+	
+	public function beforeSave() {
+		if ( isset( $this->data[ $this->alias ][ 'password' ] ) ) {
+			$this->data[ $this->alias ][ 'password' ] = md5( $this->data[ $this->alias ][ 'password' ] );
+		}
+		return true;
+	}
+	
+	public function isAuthentic( $password ) {
+		return ( $this->data[ $this->alias ][ 'password' ] == md5( $password ) );
+	}
 }
