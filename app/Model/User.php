@@ -10,6 +10,8 @@ class User extends AppModel {
 		)
 	);
 	
+	public $whitelist = array( 'email', 'password', 'first_name', 'last_name' );
+	
 	public $validate = array( 
 						'email' => array( 
 							'email' => array( 
