@@ -11,6 +11,8 @@ class Post extends AppModel {
 		)
 	);
 	
+	public $whitelist = array( 'title', 'body' );
+	
 	public $validation = array(
 		'title' => array(
 			'maxLength' => array(
