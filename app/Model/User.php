@@ -14,11 +14,6 @@ class User extends AppModel {
 	
 	public $validate = null;
 	
-	public function __construct() {
-		parent::__construct();
-		$this->setupValidation();
-	}
-	
 	public function setupValidation() {
 		$this->validate = array( 
 			'email' => array( 
