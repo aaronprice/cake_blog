@@ -3,6 +3,13 @@
 class User extends AppModel {
 	
 	public $name = 'User';
+	
+	public $hasMany = array(
+		'Posts' => array(
+			'className' => 'Post'
+		)
+	);
+	
 	public $validate = array( 
 						'email' => array( 
 							'email' => array( 
