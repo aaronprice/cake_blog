@@ -46,7 +46,7 @@
 </div>
 
 <?php if ( $current_user ) : ?>
-	<?php echo $this->Form->create('Comment');?>
+	<?php echo $this->Form->create('Comment', array( 'url' => '/comments/add' ));?>
 		<fieldset>
 			<legend><?php echo __('Add Comment'); ?></legend>
 		<?php

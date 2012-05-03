@@ -36,6 +36,8 @@ class PostsController extends AppController {
 		if (!$this->Post->exists()) {
 			throw new NotFoundException(__('Invalid post'));
 		}
+		
+		$this->loadModel( 'Comment' );
 		$this->set('post', $this->Post->read(null, $id));
 		$this->set( 'current_user', $this->currentUser );
 	}

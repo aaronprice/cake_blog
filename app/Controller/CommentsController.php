@@ -51,7 +51,9 @@ class CommentsController extends AppController {
 			
 			if ($this->Comment->save($this->request->data)) {
 				$this->Session->setFlash(__('The comment has been saved'));
-				$this->redirect(array('action' => 'index'));
+				
+				$this->Comment->read();
+				$this->redirect( array( 'controller' => 'posts', 'action' => 'view', $this->Comment->data[ 'Comment' ][ 'post_id' ] ) );
 			} else {
 				$this->Session->setFlash(__('The comment could not be saved. Please, try again.'));
 			}
