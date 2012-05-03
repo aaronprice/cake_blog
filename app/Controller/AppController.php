@@ -35,11 +35,11 @@ class AppController extends Controller {
 	
 	public $currentUser = null;
 	
-	public $components = array(
-        'Session'
-    );
+	public $components = array( 'Session', 'DebugKit.Toolbar' );
 
 	public function beforeFilter() {
+		parent::beforeFilter();
+		
 		$this->setCurrentUser();
 	}
 	
@@ -47,6 +47,13 @@ class AppController extends Controller {
 		$user_id = $this->Session->read( 'user_id' );
 		if ( $user_id ) {
 			$this->currentUser = ClassRegistry::init( 'User' )->readById( $user_id );
+			unset( $this->currentUser->data[ 'User' ][ 'password' ] );
+		}
+	}
+	
+	public function authenticate() {
+		if ( !$this->currentUser ) {
+			$this->redirect( array( 'controller' => 'user_sessions', 'action' => 'add' ) );
 		}
 	}
 }
