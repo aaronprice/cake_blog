@@ -24,6 +24,10 @@ class User extends AppModel {
 				'maxLength' => array(
 					'rule' => array( 'maxLength', 60 ),
 					'message' => __( 'must be less than 60 characters' )
+				),
+				'isUnique' => array(
+					'rule' => 'isUnique',
+					'message' => __( 'already taken' )
 				)
 			),
 			'password' => array(
