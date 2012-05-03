@@ -37,6 +37,7 @@ class PostsController extends AppController {
 			throw new NotFoundException(__('Invalid post'));
 		}
 		$this->set('post', $this->Post->read(null, $id));
+		$this->set( 'current_user', $this->currentUser );
 	}
 
 /**
