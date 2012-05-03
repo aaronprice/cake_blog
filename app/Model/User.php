@@ -65,4 +65,18 @@ class User extends AppModel {
 	public function isAuthentic( $password ) {
 		return ( $this->data[ $this->alias ][ 'password' ] == md5( $password ) );
 	}
+	
+	public function readByEmail( $email ) {
+		
+		$User = null;
+		
+		$result = $this->findByEmail( $email );
+		
+		if ( is_array( $result ) && count( $result ) > 0 ) {
+			$this->id = $result[ 'User' ][ 'id' ];
+			$this->read();
+		}
+		
+		return $this;
+	}
 }
