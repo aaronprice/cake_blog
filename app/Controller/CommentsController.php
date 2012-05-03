@@ -63,31 +63,6 @@ class CommentsController extends AppController {
 		$this->set(compact('users', 'posts'));
 	}
 
-/**
- * edit method
- *
- * @param string $id
- * @return void
- */
-	public function edit($id = null) {
-		$this->Comment->id = $id;
-		if (!$this->Comment->exists()) {
-			throw new NotFoundException(__('Invalid comment'));
-		}
-		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Comment->save($this->request->data)) {
-				$this->Session->setFlash(__('The comment has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The comment could not be saved. Please, try again.'));
-			}
-		} else {
-			$this->request->data = $this->Comment->read(null, $id);
-		}
-		$users = $this->Comment->User->find('list');
-		$posts = $this->Comment->Post->find('list');
-		$this->set(compact('users', 'posts'));
-	}
 
 /**
  * delete method
