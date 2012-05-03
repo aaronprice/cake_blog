@@ -15,5 +15,7 @@
 	<?php echo $this->fetch('content'); ?>
 	
 	<?php echo $this->element('sql_dump'); ?>
+	<?= "user_id: " ?>
+	<?php var_dump( $this->Session->read( 'user_id' ) ); ?>
 </body>
 </html>
