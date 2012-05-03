@@ -6,6 +6,12 @@ class Post extends AppModel {
 	
 	public $belongsTo = array( 'User' );
 	
+	public $hasMany = array(
+		'Comments' => array(
+			'className' => 'Comment'
+		)
+	);
+	
 	public $whitelist = array( 'title', 'body', 'user_id' );
 	
 	public $validate = null;

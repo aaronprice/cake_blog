@@ -7,6 +7,9 @@ class User extends AppModel {
 	public $hasMany = array(
 		'Posts' => array(
 			'className' => 'Post'
+		),
+		'Comments' => array(
+			'className' => 'Comment'
 		)
 	);
 	
