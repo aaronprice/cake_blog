@@ -70,24 +70,18 @@ class User extends AppModel {
 		}
 	}
 	
-	public function readByEmail( $email ) {
+	public function __call( $method, $params ) {
 		
-		$User = null;
-		
-		$result = $this->findByEmail( $email );
-		
-		if ( is_array( $result ) && isset( $result[ 'User' ][ 'id' ] ) ) {
-			$this->id = $result[ 'User' ][ 'id' ];
-			$this->read();
+		if ( substr( $method, 0, 6 ) == 'readBy' ) {
+			return $this->_readBy( substr( $method, 6 ), $params[ 0 ] );
 		}
 		
-		return $this;
+		return parent::__call( $method, $params );
 	}
 	
-	public function readById( $id ) {
-		$User = null;
-		
-		$result = $this->findById( $id );
+	public function _readBy( $column, $value ) {
+		$method = 'findBy'.$column;
+		$result = $this->$method( $value );
 		
 		if ( is_array( $result ) && isset( $result[ 'User' ][ 'id' ] ) ) {
 			$this->id = $result[ 'User' ][ 'id' ];
