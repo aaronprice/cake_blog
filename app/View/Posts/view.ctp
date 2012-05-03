@@ -45,6 +45,16 @@
 	</ul>
 </div>
 
+<?php if ( count( $post[ 'Comments' ] ) > 0 ) : ?>
+	<dl>
+		<?php foreach ( $post[ 'Comments' ] as $comment ) : ?>
+		<dt><?= $comment[ 'body' ] ?></dt>
+		<?php endforeach ?>
+	</dl>
+<?php else : ?>	
+	<p><?= __( 'No comments just yet.' ) ?>
+<?php endif ?>
+
 <?php if ( $current_user ) : ?>
 	<?php echo $this->Form->create('Comment', array( 'url' => '/comments/add' ));?>
 		<fieldset>
