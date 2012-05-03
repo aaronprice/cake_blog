@@ -33,7 +33,20 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 	
+	public $currentUser = null;
+	
 	public $components = array(
         'Session'
     );
+
+	public function beforeFilter() {
+		$this->setCurrentUser();
+	}
+	
+	public function setCurrentUser() {		
+		$user_id = $this->Session->read( 'user_id' );
+		if ( $user_id ) {
+			$this->currentUser = ClassRegistry::init( 'User' )->readById( $user_id );
+		}
+	}
 }

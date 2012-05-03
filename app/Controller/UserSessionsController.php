@@ -9,6 +9,7 @@ class UserSessionsController extends AppController {
 			$User = ClassRegistry::init( 'User' )->readByEmail( $this->request->data[ 'User' ][ 'email' ] );
 			
 			if ( $User && $User->isAuthentic( $this->request->data[ 'User' ][ 'password' ] ) ) {
+				$this->Session->write( 'user_id', $User->id );
 				$this->redirect('/');
 			} else {
 				$this->Session->setFlash(__('Invalid username or password, try again'));

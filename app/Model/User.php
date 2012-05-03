@@ -83,4 +83,17 @@ class User extends AppModel {
 		
 		return $this;
 	}
+	
+	public function readById( $id ) {
+		$User = null;
+		
+		$result = $this->findById( $id );
+		
+		if ( is_array( $result ) && isset( $result[ 'User' ][ 'id' ] ) ) {
+			$this->id = $result[ 'User' ][ 'id' ];
+			$this->read();
+		}
+		
+		return $this;
+	}
 }
