@@ -47,6 +47,9 @@ class AppModel extends Model {
 	}
 	
 	private function _readBy( $column, $value ) {
+		
+		$this->recursive = -1;
+		
 		$method = 'findBy'.$column;
 		$result = $this->$method( $value );
 		
