@@ -44,40 +44,4 @@
 		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
-	<div class="related">
-		<h3><?php echo __('Related Users');?></h3>
-	<?php if (!empty($post['User'])):?>
-		<dl>
-			<dt><?php echo __('Id');?></dt>
-		<dd>
-	<?php echo $post['User']['id'];?>
-&nbsp;</dd>
-		<dt><?php echo __('Email');?></dt>
-		<dd>
-	<?php echo $post['User']['email'];?>
-&nbsp;</dd>
-		<dt><?php echo __('Password');?></dt>
-		<dd>
-	<?php echo $post['User']['password'];?>
-&nbsp;</dd>
-		<dt><?php echo __('First Name');?></dt>
-		<dd>
-	<?php echo $post['User']['first_name'];?>
-&nbsp;</dd>
-		<dt><?php echo __('Last Name');?></dt>
-		<dd>
-	<?php echo $post['User']['last_name'];?>
-&nbsp;</dd>
-		<dt><?php echo __('Is Admin');?></dt>
-		<dd>
-	<?php echo $post['User']['is_admin'];?>
-&nbsp;</dd>
-		</dl>
-	<?php endif; ?>
-		<div class="actions">
-			<ul>
-				<li><?php echo $this->Html->link(__('Edit User'), array('controller' => 'users', 'action' => 'edit', $post['User']['id'])); ?></li>
-			</ul>
-		</div>
-	</div>
 	
