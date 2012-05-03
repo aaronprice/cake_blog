@@ -44,4 +44,18 @@
 		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
+
+<?php if ( $current_user ) : ?>
+	<?php echo $this->Form->create('Comment');?>
+		<fieldset>
+			<legend><?php echo __('Add Comment'); ?></legend>
+		<?php
+			echo $this->Form->input( 'post_id', array( 'type' => 'hidden', 'default' => h( $post[ 'Post' ][ 'id' ] ) ) );
+			echo $this->Form->input('body');
+		?>
+		</fieldset>
+	<?php echo $this->Form->end(__('Submit'));?>
+<?php else : ?>
+	<p><?= __( 'You must be logged in to post a comment.' ) ?>
+<?php endif ?>
 	
