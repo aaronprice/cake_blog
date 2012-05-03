@@ -79,7 +79,7 @@ class User extends AppModel {
 		return parent::__call( $method, $params );
 	}
 	
-	public function _readBy( $column, $value ) {
+	private function _readBy( $column, $value ) {
 		$method = 'findBy'.$column;
 		$result = $this->$method( $value );
 		
