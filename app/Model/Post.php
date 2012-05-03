@@ -6,7 +6,7 @@ class Post extends AppModel {
 	
 	public $belongsTo = array( 'User' );
 	
-	public $whitelist = array( 'title', 'body' );
+	public $whitelist = array( 'title', 'body', 'user_id' );
 	
 	public $validate = null;
 	
@@ -30,4 +30,16 @@ class Post extends AppModel {
 			)
 		);
 	}
+	
+	
+	// public function beforeSave() {
+	// 	pr($this->data);
+	// 	return true;
+	// }
+	// 
+	// public function afterSave($created) {
+	// 	pr('after');
+	// 	pr($this->data);
+	// 	exit;
+	// }
 }
