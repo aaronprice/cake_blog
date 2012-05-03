@@ -30,16 +30,4 @@ class Post extends AppModel {
 			)
 		);
 	}
-	
-	
-	// public function beforeSave() {
-	// 	pr($this->data);
-	// 	return true;
-	// }
-	// 
-	// public function afterSave($created) {
-	// 	pr('after');
-	// 	pr($this->data);
-	// 	exit;
-	// }
 }
