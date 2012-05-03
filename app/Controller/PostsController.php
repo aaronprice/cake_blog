@@ -10,7 +10,7 @@ class PostsController extends AppController {
 	public function beforeFilter() {
 		parent::beforeFilter();
 		
-		if ( !in_array( $this->action, array( 'index' ) ) ) {
+		if ( !in_array( $this->action, array( 'index', 'view' ) ) ) {
 			$this->authenticate();
 		}
 	}
