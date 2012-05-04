@@ -19,11 +19,11 @@
 	<div id="container">
 		<div id="header">
 			<h1>
+				<?= $this->Html->link( 'Blog', '/' ) ?>
 				<?php if ( $currentUser ) : ?>
 					Welcome, <?= $currentUser->data[ 'User' ][ 'first_name' ] ?>.
 					<?= $this->Html->link( 'Logout', array( 'controller' => 'logout' ) ) ?>
 				<?php else : ?>
-					Blog
 					<?= $this->Html->link( 'Login', array( 'controller' => 'login' ) ) ?>
 				<?php endif ?>
 			</h1>
