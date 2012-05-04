@@ -49,6 +49,8 @@ class AppController extends Controller {
 			$this->currentUser = ClassRegistry::init( 'User' )->readById( $user_id );
 			unset( $this->currentUser->data[ 'User' ][ 'password' ] );
 		}
+		
+		$this->set( 'currentUser', $this->currentUser );
 	}
 	
 	public function authenticate() {
